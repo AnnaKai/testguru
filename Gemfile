@@ -25,6 +25,8 @@ gem 'jbuilder', '~> 2.5'
 # js runtime
 gem 'execjs'
 gem 'therubyracer'
+# bootstrap 4
+gem 'bootstrap', '~> 4.3.1'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
