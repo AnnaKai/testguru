@@ -1,10 +1,13 @@
 # README
+<h1>TestGuru Project</h1>
 
-Ruby version: 2.5.3
+<p>Ruby version: 2.5.3</p>
 
-Entities:
+<strong>Entities:</strong>
 
-questionnaire
-question
-answer
-user
+<ul>
+  <li>questionnaire</li>
+  <li>question</li>
+  <li>answer</li>
+  <li>user</li>
+</ul>
