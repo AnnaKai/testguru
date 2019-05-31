@@ -7,6 +7,8 @@ ruby '2.5.3'
 gem 'rails', '~> 5.2.3'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+# mysql
+gem 'mysql2', '~> 0.5.2'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -25,6 +27,8 @@ gem 'jbuilder', '~> 2.5'
 # js runtime
 gem 'execjs'
 gem 'therubyracer'
+# bootstrap 4
+gem 'bootstrap', '~> 4.3.1'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

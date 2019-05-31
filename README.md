@@ -1,24 +1,12 @@
-# README
+<h1>TestGuru Project</h1>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<p>Ruby version: 2.5.3</p>
 
-Things you may want to cover:
+<strong>Entities:</strong>
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<ul>
+  <li>questionnaire</li>
+  <li>question</li>
+  <li>answer</li>
+  <li>user</li>
+</ul>
