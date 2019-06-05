@@ -1,5 +1,8 @@
 class User < ApplicationRecord
 
+  has_many :test_passes
+  has_many :tests, through: :test_passes
+
   def tests_by_level(level)
     # select all the test id which belong to the user
     user_tests = TestPass.where("user_id = ?", id)
