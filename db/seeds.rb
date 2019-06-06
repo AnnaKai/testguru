@@ -11,27 +11,27 @@ categories = [['Ruby'], ['PHP'], ['JS']]
 categories.each { |category_name| Category.create(title: category_name) }
 
 tests = [
-  ['OOP in Ruby', 0, 1],
-  ['OOP in PHP', 1, 2],
-  ['ES6: new features', 2, 3]
+  ['OOP in Ruby', 0, categories[0].id],
+  ['OOP in PHP', 1, categories[1].id],
+  ['ES6: new features', 2, categories[2].id]
 ]
 tests.each do |title, level, category_id|
   Test.create(title: title, level: level, category_id: category_id)
 end
 
 questions = [
-  ['What is an Object?', 1],
-  ['What is a Class', 2],
-  ['What is an Arrow Function?', 3]
+  ['What is an Object?', tests[0].id],
+  ['What is a Class', tests[1].id],
+  ['What is an Arrow Function?', tests[2].id]
 ]
 questions.each do |body, test_id|
   Question.create(body: body, test_id: test_id)
 end
 
 answers = [
-  ['Object is an instance of a class', true, 1],
-  ['A blueprint for an object', true, 2],
-  ['Compact alternative to a regular function expression', true, 3]
+  ['Object is an instance of a class', true, questions[0].id],
+  ['A blueprint for an object', true, questions[1].id],
+  ['Compact alternative to a regular function expression', true, questions[2].id]
 ]
 answers.each do |body, correct, question_id|
   Answer.create(body: body, correct: correct, question_id: question_id)
