@@ -5,6 +5,6 @@ class Test < ApplicationRecord
   has_many :users, through: :test_passes
 
   def self.sorted_by_title(category_title)
-    where("title = ?", category_title).order(id: :desc)
+    joins(:category).where("title = ?", category_title).order(id: :desc).pluck(:title)
   end
 end
