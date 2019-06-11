@@ -10,10 +10,14 @@ class Test < ApplicationRecord
   scope :normal, -> { where(level: 2..4) }
   scope :hard, -> { where(level: 5..) }
 
-  scope :sorted_by_title, ->(title) { joins(:category).where("title = ?", title).order(id: :desc).pluck(:title) }
+  scope :joined_categories, ->(title) { joins(:category).where("title = ?", title) }
 
   validates :title, presence: true, uniqueness: true
   validates :level, numericality: { only_integer: true, greater_than: 0 }
-  validates_uniqueness_of :title, :scope => :level
+  validates_uniqueness_of :title, :scope => [:level, :id]
+
+  def sorted_by_title(title)
+    joined_categories(title).order(id: :desc).pluck(:title)
+  end
 
 end
