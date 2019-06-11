@@ -12,9 +12,8 @@ class Test < ApplicationRecord
 
   scope :joined_categories, ->(title) { joins(:category).where("title = ?", title) }
 
-  validates :title, presence: true, uniqueness: true
+  validates :title, presence: true, uniqueness: { scope: :level }
   validates :level, numericality: { only_integer: true, greater_than: 0 }
-  validates_uniqueness_of :title, :scope => [:level, :id]
 
   def sorted_by_title(title)
     joined_categories(title).order(id: :desc).pluck(:title)
