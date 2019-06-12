@@ -6,7 +6,17 @@ class Test < ApplicationRecord
   has_many :test_passes
   has_many :users, through: :test_passes
 
-  def self.sorted_by_title(category_title)
-    joins(:category).where("title = ?", category_title).order(id: :desc).pluck(:title)
+  scope :easy, -> { where(level: 0..1) }
+  scope :normal, -> { where(level: 2..4) }
+  scope :hard, -> { where(level: 5..) }
+
+  scope :joined_categories, ->(title) { joins(:category).where("title = ?", title) }
+
+  validates :title, presence: true, uniqueness: { scope: :level }
+  validates :level, numericality: { only_integer: true, greater_than: 0 }
+
+  def sorted_by_title(title)
+    joined_categories(title).order(id: :desc).pluck(:title)
   end
+
 end
