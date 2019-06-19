@@ -1,6 +1,6 @@
 class Test < ApplicationRecord
-  belongs_to :category
-  belongs_to :author, class_name: "User"
+  belongs_to :category, required: false
+  belongs_to :author, class_name: "User", required: false
 
   has_many :questions
   has_many :test_passes

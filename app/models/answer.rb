@@ -1,7 +1,7 @@
 class Answer < ApplicationRecord
   MAX_ANSWERS = 4
 
-  belongs_to :question
+  belongs_to :question, required: false
 
   scope :correct, -> { where(correct: true) }
 
@@ -11,6 +11,6 @@ class Answer < ApplicationRecord
   private
 
   def check_answers_max_limit
-    errors.add(:max_limit, "Question can't have more than #{MAX_ANSWERS} answers") if question.answers.size >= MAX_ANSWERS
+    errors.add(:max_limit, "Question can't have more than #{MAX_ANSWERS} answers") if Question.answers.size >= MAX_ANSWERS
   end
 end

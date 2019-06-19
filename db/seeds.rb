@@ -6,36 +6,25 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+categories = Category.create([{ title: 'Ruby'}, { title: 'PHP'}, {title: 'JS'}])
 
-categories = [['Ruby'], ['PHP'], ['JS']]
-categories.each { |category_name| Category.create(title: category_name) }
+tests = Test.create([
+  { title: 'OOP in Ruby', level: 1, category_id: categories[0].id },
+  { title: 'OOP in PHP', level: 2, category_id: categories[1].id },
+  { title: 'ES6: new features', level: 3, category_id: categories[2].id }
+])
 
-tests = [
-  ['OOP in Ruby', 0, categories[0].id],
-  ['OOP in PHP', 1, categories[1].id],
-  ['ES6: new features', 2, categories[2].id]
-]
-tests.each do |title, level, category_id|
-  Test.create(title: title, level: level, category_id: category_id)
-end
+questions = Question.create([
+  { body: 'What is an Object?', test_id: tests[0].id },
+  { body: 'What is a Class', test_id: tests[1].id },
+  { body: 'What is an Arrow Function?', test_id: tests[2].id}
+])
 
-questions = [
-  ['What is an Object?', tests[0].id],
-  ['What is a Class', tests[1].id],
-  ['What is an Arrow Function?', tests[2].id]
-]
-questions.each do |body, test_id|
-  Question.create(body: body, test_id: test_id)
-end
-
-answers = [
-  ['Object is an instance of a class', true, questions[0].id],
-  ['A blueprint for an object', true, questions[1].id],
-  ['Compact alternative to a regular function expression', true, questions[2].id]
-]
-answers.each do |body, correct, question_id|
-  Answer.create(body: body, correct: correct, question_id: question_id)
-end
+answers = Answer.create([
+  { body: 'Object is an instance of a class', correct: true, question_id: questions[0].id },
+  { body: 'A blueprint for an object', correct: true, question_id: questions[1].id },
+  { body: 'Compact alternative to a regular function expression', correct: true, question_id: questions[2].id }
+])
 
 users = [
   ['Peter Pan', 'peterpan@pp.com', 'qwerty']

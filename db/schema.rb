@@ -27,11 +27,6 @@ ActiveRecord::Schema.define(version: 2019_06_05_154444) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "joined_table_users_tests", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "test_id"
-  end
-
   create_table "questions", force: :cascade do |t|
     t.text "body", null: false
     t.integer "test_id"
