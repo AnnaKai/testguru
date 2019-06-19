@@ -1,7 +1,23 @@
-<ul>
-<% @questions.each do |question| %>
-  <li>
-    <%= question.body %>
-  </li>
-<% end %>
-</ul>
+<div class="container py-5">
+  <div class="row">
+    <div class="offset-md-3 col-md-6">
+      <div class="d-flex justify-content-between mb-4">
+        <small>Total questions: <%= @questions.count %></small>
+        <small>Test Title: <%= @test.title %> </small>
+      </div>
+      <ul class="list-group mb-4">
+        <% @questions.each do |question| %>
+          <li class="d-flex list-group-item align-items-center justify-content-between">
+            <%= question.body %>
+            <div>
+              <%= link_to 'Edit', edit_question_path(question), :class => "btn btn-primary" %>
+              <%= link_to 'Delete', question_path(question), method: :delete, :class => "btn btn-danger" %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+      <div><%= link_to 'New Question', new_test_question_path, :class => "btn btn-success"%></div>
+    </div>
+  </div>
+</div>
+
