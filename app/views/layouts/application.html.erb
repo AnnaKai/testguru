@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Testguru</title>
+    <title>TestGuru</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,19 @@
   </head>
 
   <body>
-    <%= yield %>
+  <%= yield %>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <small class="d-block m-0">A project for <%= link_to 'Thinknetica', 'http://thinknetica.com/' %>
+            online-school
+          </small>
+          <small>&copy; Copyrights <%= current_year %>. All Rights Reserved.
+            <%= github_url('annakai', 'testguru') %></small>
+        </div>
+      </div>
+    </div>
+  </footer>
   </body>
 </html>

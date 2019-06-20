@@ -1,7 +1,26 @@
-<ol>
-  <% @tests.each do |t| %>
-    <li>
-      <%= t.title %>
-    </li>
-  <% end %>
-</ol>
+<div class="container py-5">
+  <div class="row">
+    <div class="offset-md-3 col-md-6">
+      <div class="d-flex justify-content-between align-items-center my-4">
+        <h2>Tests</h2>
+        <small>Quantity: <%= @tests.count %></small>
+      </div>
+      <% if @tests.present? %>
+        <table class="table">
+          <tr>
+            <th>Title</th>
+            <th>Level</th>
+            <th colspan="2">Actions</th>
+          </tr>
+
+            <%= render @tests %>
+
+        </table>
+      <% else %>
+        <p>No tests</p>
+      <% end %>
+      <div class="my-3"><%= link_to 'New Test', new_test_path, :class => "btn btn-success" %></div>
+    </div>
+  </div>
+</div>
+

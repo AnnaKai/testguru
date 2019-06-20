@@ -1,0 +1,11 @@
+<%= form_with model: [@test, @question], local: true do |f| %>
+
+  <%= render 'shared/errors', resource: @question %>
+
+  <%= f.label(:body) %>
+  <%= f.text_field :body %>
+
+  <%= f.hidden_field :test_id, value: params[:test_id] %>
+
+  <%= f.submit "Submit" %>
+<% end %>
