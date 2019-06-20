@@ -1,0 +1,18 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="offset-md-3 col-md-6">
+        <table class="table">
+          <tr>
+            <th>Title</th>
+            <th>Level</th>
+          </tr>
+            <tr>
+              <td><%= @test.title %></td>
+              <td><%= @test.level %></td>
+            </tr>
+        </table>
+      <%= link_to 'Edit', edit_test_path(@test), :class => "btn btn-primary" %>
+      <div class="my-3"><%= link_to 'Back to Tests', tests_path, :class => "btn btn-secondary" %></div>
+    </div>
+  </div>
+</div>
