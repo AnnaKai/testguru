@@ -3,16 +3,26 @@
     <div class="offset-md-3 col-md-6">
         <table class="table">
           <tr>
-            <th>Title</th>
+            <th>Test Title</th>
             <th>Level</th>
+            <th>Action</th>
           </tr>
             <tr>
               <td><%= @test.title %></td>
               <td><%= @test.level %></td>
+              <td><%= link_to 'Edit', edit_test_path(@test), :class => "btn btn-primary" %></td>
             </tr>
         </table>
-      <%= link_to 'Edit', edit_test_path(@test), :class => "btn btn-primary" %>
-      <div class="my-3"><%= link_to 'Back to Tests', tests_path, :class => "btn btn-secondary" %></div>
+      <h4>Test questions</h4>
+      <ul>
+      <% @test.questions.each do |q| %>
+          <li><a href="<%= test_question_path(q) %>"><%= q.body %></a></li>
+      <% end %>
+      </ul>
+      <div class="d-flex justify-content-between my-3">
+        <%= link_to 'Back to Tests', tests_path, :class => "btn btn-secondary" %>
+
+      </div>
     </div>
   </div>
 </div>

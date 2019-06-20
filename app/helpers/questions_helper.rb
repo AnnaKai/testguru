@@ -1,10 +1,5 @@
 module QuestionsHelper
-  def question_header(test)
-    case params[:action]
-    when 'new' then
-      "Create a new #{test.title} question"
-    when 'edit' then
-      "Edit #{test.title} question"
-    end
+  def question_header(q)
+    q.new_record? ? "Create a new #{q.body} question" :  "Edit #{q.body} question"
   end
 end
