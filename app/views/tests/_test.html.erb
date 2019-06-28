@@ -1,6 +1,7 @@
 <tr>
   <td><a href="<%= test_path(test) %>"><%= test.title %></a></td>
   <td><%= test.level %></td>
+  <td><%= button_to 'Start', start_test_path(test) %></td>
   <td>
     <%= link_to 'Edit', edit_test_path(test), :class => "btn btn-primary" %>
     <%= link_to 'Delete',

@@ -1,10 +1,10 @@
 class Test < ApplicationRecord
-  belongs_to :category, required: false
-  belongs_to :author, class_name: "User", required: false
+  belongs_to :category, optional: true
+  belongs_to :author, class_name: "User", required: false, foreign_key: :user_id, optional: true
 
   has_many :questions
-  has_many :test_passes
-  has_many :users, through: :test_passes
+  has_many :test_passages
+  has_many :users, through: :test_passages
 
   scope :easy, -> { where(level: 0..1) }
   scope :normal, -> { where(level: 2..4) }
