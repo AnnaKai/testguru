@@ -6,11 +6,11 @@ class Answer < ApplicationRecord
   scope :correct, -> { where(correct: true) }
 
   validates :body, presence: true
-  validate :check_answers_max_limit
+  # validate :check_answers_max_limit
 
   private
 
   def check_answers_max_limit
-    errors.add(:max_limit, "Question can't have more than #{MAX_ANSWERS} answers") if Question.answers.size >= MAX_ANSWERS
+    errors.add(:max_limit, "Question can't have more than #{MAX_ANSWERS} answers") if question.answers.size >= MAX_ANSWERS
   end
 end

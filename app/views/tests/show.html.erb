@@ -6,14 +6,14 @@
 
       <h4 class="mt-4">Questions</h4>
       <table class="table">
-        <tr>
       <% @test.questions.each do |q| %>
+          <tr>
             <td><a href="<%= question_url(q) %>"><%= q.body %></a></td>
             <td><%= link_to 'Edit', edit_question_path(q), :class => "" %></td>
             <td><%= link_to 'Delete', question_path(q), method: :delete, :class => "" %></td>
           </td>
+          </tr>
       <% end %>
-        </tr>
       </table>
       <%= link_to 'New Question', new_test_question_path(@test), :class => "btn btn-secondary" %>
       <div class="d-flex justify-content-between my-3">
