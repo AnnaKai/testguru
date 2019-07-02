@@ -10,8 +10,8 @@
           <li class="d-flex list-group-item align-items-center justify-content-between">
             <%= question.body %>
             <div>
-              <%= link_to 'Edit', edit_test_question_path(question.test_id, question.id), :class => "btn btn-primary" %>
-              <%= link_to 'Delete', test_question_path(question.test_id, question.id), method: :delete, :class => "btn btn-danger" %>
+              <%= link_to 'Edit', edit_question_path(question.id), :class => "btn btn-primary" %>
+              <%= link_to 'Delete', question_path(question.test_id, question.id), method: :delete, :class => "btn btn-danger" %>
             </div>
           </li>
         <% end %>
