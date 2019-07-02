@@ -29,7 +29,7 @@ class TestPassage < ApplicationRecord
   end
 
   def passed?
-    success_rate > SUCCESS_PERCENT
+    success_rate >= SUCCESS_PERCENT
   end
 
   private
