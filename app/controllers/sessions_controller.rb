@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to session[:referrer]
+      redirect_to session[:referrer] || root_url
     else
       flash.now[:error] = "Email or Password is wrong"
       render :new
