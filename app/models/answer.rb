@@ -6,7 +6,7 @@ class Answer < ApplicationRecord
   scope :correct, -> { where(correct: true) }
 
   validates :body, presence: true
-  # validate :check_answers_max_limit
+  validate :check_answers_max_limit
 
   private
 
