@@ -20,16 +20,16 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav">
-          <% if signed_in? %>
+          <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to "Log Out", logout_path, class:"nav-link" %>
+              <%= link_to "Log Out", destroy_user_session_path, class:"nav-link" %>
             </li>
           <% else %>
             <li class="nav-item">
-              <a class="nav-link" href="/sign-in">Sign In</a>
+              <%= link_to "Log In", new_user_session_path, class:"nav-link" %>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/sign-up">Register</a>
+              <%= link_to "Sign Up", new_user_registration_path, class:"nav-link" %>
             </li>
           <% end %>
         </ul>
@@ -37,7 +37,9 @@
     </div>
   </nav>
   <!-- Navigation End !-->
-  <% if signed_in? %>
+  <%= render 'shared/flash_messages' %>
+
+  <% if user_signed_in? %>
     <p class="text-center">Welcome, <b><%= current_user.username.capitalize %></b> Guru</p>
   <% end %>
   <%= yield %>

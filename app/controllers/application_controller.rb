@@ -1,23 +1,11 @@
 class ApplicationController < ActionController::Base
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  helper_method :current_user,
-                :signed_in?
+  protected
 
-  private
-
-  def authenticate_user!
-    unless current_user
-      session[:referrer] = request.url
-      redirect_to "/sign-in"
-    end
+  def configure_permitted_parameters
+    added_attrs = [:username, :first_name, :last_name]
+    devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
+    devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
-
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
-  end
-
-  def signed_in?
-    current_user.present?
-  end
-
 end
