@@ -1,0 +1,22 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="offset-md-3 col-md-6">
+      <p><strong>Title: </strong><%= @test.title %></p>
+       <p><strong>Level: </strong><%= @test.level %></p>
+      <h4 class="mt-4">Questions</h4>
+      <table class="table">
+        <tr>
+          <td>
+              <%= render partial: 'admin/questions/question', collection: @test.questions %>
+          </td>
+        </tr>
+      </table>
+      <%= link_to 'New Question', new_admin_test_question_path(@test), :class => "btn btn-secondary" %>
+      <div class="d-flex justify-content-between my-3">
+        <%= link_to 'Back to Tests', admin_tests_path, :class => "btn btn-secondary" %>
+        <%= link_to 'Edit', edit_admin_test_path(@test), :class => "btn btn-primary" %>
+
+      </div>
+    </div>
+  </div>
+</div>
