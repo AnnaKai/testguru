@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_08_193522) do
+ActiveRecord::Schema.define(version: 2019_07_09_012129) do
 
   create_table "answers", force: :cascade do |t|
     t.string "body", null: false
@@ -79,7 +79,9 @@ ActiveRecord::Schema.define(version: 2019_07_08_193522) do
     t.string "unlock_token"
     t.string "first_name"
     t.string "last_name"
+    t.string "type", default: "User", null: false
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["type"], name: "index_users_on_type"
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 

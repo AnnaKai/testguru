@@ -1,0 +1,3 @@
+<td><a href="<%= admin_question_path %>"><%= question.body %></a></td>
+<td><%= link_to 'Edit', edit_admin_question_path(question)%></td>
+<td><%= link_to 'Delete', admin_question_path(question), method: :delete %></td>

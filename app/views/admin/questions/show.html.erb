@@ -7,10 +7,10 @@
       <ol>
         <%= render @question.answers %>
       </ol>
-      <%= link_to 'New Answer', new_question_answer_path(@question), :class => "btn btn-success"%>
+      <%= link_to 'New Answer', new_admin_question_answer_path(@question), :class => "btn btn-success"%>
       <div class="mt-4">
-        <%= link_to 'Edit', edit_question_path(@question), :class => "btn btn-primary mr-3" %>
-        <%= link_to 'Back', test_path(@question.test), :class => "btn btn-secondary"%>
+        <%= link_to 'Edit', edit_admin_test_path(@question), :class => "btn btn-primary mr-3" %>
+        <%= link_to 'Back', admin_test_path(@question.test), :class => "btn btn-secondary"%>
       </div>
     </div>
   </div>

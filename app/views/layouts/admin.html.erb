@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel | Test Guru</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+<%= render 'admin/nav' %>
+<%= render 'shared/flash_messages' %>
+
+<% if user_signed_in? %>
+  <p class="text-center">Hi, <b><%= current_user.first_name.capitalize %></b>!</p>
+<% end %>
+<%= yield %>
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <small class="d-block m-0">A project for <%= link_to 'Thinknetica', 'http://thinknetica.com/' %>
+          online-school
+        </small>
+        <small>&copy; Copyrights <%= current_year %>. All Rights Reserved.
+          <%= github_url('annakai', 'testguru') %></small>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

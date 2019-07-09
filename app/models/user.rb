@@ -2,8 +2,7 @@ require 'digest/sha1'
 
 class User < ApplicationRecord
 
-  devise :confirmable,
-         :database_authenticatable,
+  devise :database_authenticatable,
          :lockable,
          :registerable,
          :recoverable,
