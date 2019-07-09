@@ -1,6 +1,7 @@
 <tr>
   <td><a href="<%= admin_test_path(test) %>"><%= test.title %></a></td>
   <td><%= test.level %></td>
+  <td><%=  test.author.first_name unless test.author.nil? %></td>
   <td>
     <%= link_to 'Edit', edit_admin_test_path(test), :class => "btn btn-primary" %>
     <%= link_to 'Delete',

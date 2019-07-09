@@ -1,6 +1,6 @@
-class Admin::TestsController < Admin::BaseController
+class Admin::TestsController < ApplicationController
 
-  before_action :find_test, only: [:show, :edit, :update, :destroy, :start]
+  before_action :find_test, only: [:show, :edit, :update, :destroy]
 
   def index
     @tests = Test.all
@@ -18,9 +18,10 @@ class Admin::TestsController < Admin::BaseController
 
   def create
     @test = Test.create(test_params)
+    @test.author = current_user
 
     if @test.save
-      redirect_to @test
+      redirect_to admin_tests_path
     else
       render :new
     end
@@ -28,7 +29,7 @@ class Admin::TestsController < Admin::BaseController
 
   def update
     if @test.update(test_params)
-      redirect_to @test
+      redirect_to admin_tests_path
     else
       render :edit
     end
@@ -36,39 +37,7 @@ class Admin::TestsController < Admin::BaseController
 
   def destroy
     @test.destroy
-    redirect_to tests_path
-  end
-
-  def start
-
-
-  def edit
-  end
-
-  def create
-    @test = Test.create(test_params)
-
-    if @test.save
-      redirect_to @test
-    else
-      render :new
-    end
-  end
-
-  def update
-    if @test.update(test_params)
-      redirect_to @test
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    @test.destroy
-    redirect_to tests_path
-  end
-    current_user.tests.push(@test)
-    redirect_to current_user.test_passage(@test)
+    redirect_to admin_tests_path
   end
 
   private
