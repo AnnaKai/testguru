@@ -1,4 +1,4 @@
-class Admin::TestsController < ApplicationController
+class Admin::TestsController < Admin::BaseController
 
   before_action :find_test, only: [:show, :edit, :update, :destroy]
 
