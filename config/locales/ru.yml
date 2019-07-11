@@ -1,6 +1,76 @@
 ru:
-  hello: "Привет, мир"
+  helpers:
+    submit:
+      update: 'Обновить'
+      submit: 'Сохранить'
+
+    label:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория"
+
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружена %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
 
   tests:
     index:
       header: "Тесты"
+      actions: "Действия"
+      quantity: "Количество"
+      title: "Название"
+      level: "Уровень"
+      no_tests: "Тестов пока нет"
+      start: "Начать"
+
+  test_passages:
+    result:
+      header: "Тест %{title} завершен"
+      rate: "теста пройдено"
+      success: "Вы набрали %{rate} и успешно прошли тест"
+      failure: "Вы набрали %{rate} и не прошли тест :("
+    show:
+      header: "Прохождение теста по %{title}"
+      question: "Вопрос %{num} из %{total}"
+
+  admin:
+    tests:
+      create:
+        success: "Tест успешно создан"
+      index:
+        header: "Тесты"
+        actions: "Действия"
+        quantity: "Количество"
+        title: "Название"
+        level: "Уровень"
+        no_tests: "Тестов пока нет"
+      edit:
+        header: "Изменить тест"
+      show:
+        header: "Вопросы"
+        title: "Название"
+        level: "Уровень"
+      new:
+        header: "Создать новый тест"
+
+  tests_mailer:
+    completed_test:
+      subject: "Вы успешно завершили тест!"
+
+  edit: "Изменить"
+  delete: "Удалить"
+  back: "Назад"
+  create: "Создать"
+  next: "Вперед"
+  links:
+    login: "Войти"
+    signup: "Зарегистрироваться"
+    forgot_pass: "Забыли пароль?"
+    no_confirmation: "Не получили письмо подтверждения?"
+    no_unlock: "Не получили письмо по разблокировке?"
+    signin_with: "Войти с помощью"

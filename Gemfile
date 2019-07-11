@@ -46,6 +46,9 @@ gem 'devise', '~> 4.6.2'
 gem 'omniauth', '>= 1.0.0'
 gem "omniauth-rails_csrf_protection"
 
+# Localization
+gem 'rails-i18n', '~> 5.1.0'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

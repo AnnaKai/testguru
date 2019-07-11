@@ -2,27 +2,31 @@ Rails.application.routes.draw do
 
   root 'tests#index'
 
-  devise_for :users
+  scope "(/:lang)", lang: /en|ru/ do
 
-  resources :tests, only: :index do
-    member do
-      post :start
-    end
-  end
+    devise_for :users, skip: :omniauth_callbacks
 
-# GET /test_passages/101/result
-  resources :test_passages, only: [:show, :update] do
-    member do
-      get :result
-    end
-  end
-
-  namespace :admin do
-    resources :tests do
-      resources :questions, shallow: true, except: :index do
-        resources :answers, shallow: true, except: :index
+    resources :tests, only: :index do
+      member do
+        post :start
       end
     end
+
+  # GET /test_passages/101/result
+    resources :test_passages, only: [:show, :update] do
+      member do
+        get :result
+      end
+    end
+
+    namespace :admin do
+      resources :tests do
+        resources :questions, shallow: true, except: :index do
+          resources :answers, shallow: true, except: :index
+        end
+      end
+    end
+
   end
 
 end

@@ -1,6 +1,6 @@
-<h2>Passing the <%= @test_passage.test.title %> Test</h2>
+<h2><%= t('.header', title: @test_passage.test.title) %></h2>
 
-<p>Question <%= @test_passage.question_num %> out of <%= @test_passage.test.questions.count %></p>
+<p> <%= t('.question', num: @test_passage.question_num, total: @test_passage.test.questions.count) %></p>
 <b>
   <%= @test_passage.current_question.body %>
 </b>
@@ -12,5 +12,5 @@
       <%= b.label %>
     </p>
   <% end %>
-  <p><%= f.submit "Next" %></p>
+  <p><%= f.submit t('next') %></p>
 <% end %>

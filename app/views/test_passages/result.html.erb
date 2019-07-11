@@ -1,13 +1,13 @@
-<h2>The <%= @test_passage.test.title %> Test was Completed!</h2>
-<p><%= @test_passage.success_rate %> % of the test has been completed!</p>
+<h2><%= t('.header', title: @test_passage.test.title ) %></h2>
+<p><%= @test_passage.success_rate %> % <%= t('.rate') %> </p>
 <% if @test_passage.passed? %>
   <p class="btn btn-success">
-    You've scored <%= @test_passage.success_rate %> and successfully passed the test!
+    <%= t('.success', rate: @test_passage.success_rate) %>
   </p>
 <% else %>
   <p class="btn btn-danger">
-    You've scored <%= @test_passage.success_rate %> and didnt' pass the test!
+    <%= t('.failure', rate: @test_passage.success_rate) %>
   </p>
 <% end %>
 
-<p><%= link_to 'Back', tests_path %></p>
+<p><%= link_to t('back'), tests_path %></p>
