@@ -1,60 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Test Guru</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Test Guru</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-  <!-- Navigation Start !-->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="/">Test Guru</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-          <% if user_signed_in? %>
-            <li class="nav-item">
-              <%= link_to "Log Out", destroy_user_session_path, method: 'delete', class:"nav-link" %>
-            </li>
-          <% else %>
-            <li class="nav-item">
-              <%= link_to "Log In", new_user_session_path, class:"nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Sign Up", new_user_registration_path, class:"nav-link" %>
-            </li>
-          <% end %>
-        </ul>
+<body>
+
+<%= render 'shared/nav' %>
+
+<%= render 'shared/flash_messages' %>
+
+<% if user_signed_in? %>
+  <p class="text-center my-4">Hi, <b><%= current_user.full_name %></b>!</p>
+<% end %>
+<%= yield %>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <small class="d-block m-0">A project for <%= link_to 'Thinknetica', 'http://thinknetica.com/' %>
+          online-school
+        </small>
+        <small>&copy; Copyrights <%= current_year %>. All Rights Reserved.
+          <%= github_url('annakai', 'testguru') %></small>
       </div>
     </div>
-  </nav>
-  <!-- Navigation End !-->
-  <%= render 'shared/flash_messages' %>
+  </div>
+</footer>
 
-  <% if user_signed_in? %>
-    <p class="text-center">Hi, <b><%= current_user.full_name %></b>!</p>
-  <% end %>
-  <%= yield %>
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <small class="d-block m-0">A project for <%= link_to 'Thinknetica', 'http://thinknetica.com/' %>
-            online-school
-          </small>
-          <small>&copy; Copyrights <%= current_year %>. All Rights Reserved.
-            <%= github_url('annakai', 'testguru') %></small>
-        </div>
-      </div>
-    </div>
-  </footer>
-  </body>
+</body>
 </html>
