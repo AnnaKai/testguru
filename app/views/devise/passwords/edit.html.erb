@@ -1,25 +1,31 @@
-<h2><%= t('devise.passwords.edit.header') %></h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 offset-md-4 my-5">
+      <h2 class="mb-4"><%= t('devise.passwords.edit.header') %></h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :put}) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <%= f.hidden_field :reset_password_token %>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %>) <%= t('devise.registrations.new.symbols') %></em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+        <div class="field">
+          <%= f.label :password, "New password" %><br/>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %>) <%= t('devise.registrations.new.symbols') %></em><br/>
+          <% end %>
+          <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation, "Confirm new password" %><br/>
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit t('devise.passwords.edit.header'), class: "btn btn-dark my-4" %>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit t('devise.passwords.edit.header') %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
