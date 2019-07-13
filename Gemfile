@@ -49,6 +49,11 @@ gem "omniauth-rails_csrf_protection"
 # Localization
 gem 'rails-i18n', '~> 5.1.0'
 
+#Networking
+gem 'faraday'
+
+gem 'dotenv-rails', groups: [:development, :test]
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
