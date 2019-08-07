@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <table class="table my-4">
+      <tr>
+        <th>Question</th>
+        <th>Gist URL</th>
+        <th>Username</th>
+      </tr>
+      <tr>
+        <% @gists.each do |gist| %>
+          <td><%= link_to gist.question.body.truncate(25), admin_test_question_path(gist.question) %><</td>
+          <td><%= link_to gist.url, "https://gist.github.com/#{gist.url}" %></td>
+          <td><%= gist.user.email %></td>
+        <% end %>
+      </tr>
+    </table>
+  </div>
+</div>

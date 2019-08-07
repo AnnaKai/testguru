@@ -52,6 +52,8 @@ gem 'rails-i18n', '~> 5.1.0'
 #Networking
 gem 'faraday'
 
+gem "octokit", "~> 4.0"
+
 gem 'dotenv-rails', groups: [:development, :test]
 
 # Reduces boot times through caching; required in config/boot.rb

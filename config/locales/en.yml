@@ -35,6 +35,13 @@ en:
     show:
       header: "Passing the %{title} test"
       question: "Question %{num} out of %{total}"
+    gist:
+      success: "Gist has been saved successfully. %{link}"
+      failure: "An error occurred during saving"
+
+  services:
+    gist_question:
+      description: "A question about %{title} from Test Guru"
 
   admin:
     tests:
