@@ -13,14 +13,17 @@ class GistQuestionService
 
   def call
     @gist = @client.create_gist(gist_params)
-    @client.last_response.status
+  end
+
+  def success?
+    @client.last_response.status == 201
   end
 
   private
 
   def gist_params
     {
-        description: t('services.gist_question.description', title: @test.title),
+        description: I18n.t('services.gist_question.description', title: @test.title),
         files: {
             'test-guru-question.text' => {
                 content: gist_content

@@ -43,7 +43,7 @@ ru:
 
   services:
     gist_question:
-      description: "Вопрос о  %{title} от Test Guru"
+      description: "Вопрос о %{title} от Test Guru"
 
   admin:
     tests:

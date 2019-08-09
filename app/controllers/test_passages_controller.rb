@@ -11,9 +11,9 @@ class TestPassagesController < ApplicationController
 
   def gist
     @obj = GistQuestionService.new(@test_passage.current_question)
-    result = @obj.call
+    @obj.call
 
-    flash_options = if result == 201
+    flash_options = if @obj.success?
                       { notice: t('.success', link: @obj.gist.html_url) }
                     else
                       { alert: t('.failure') }
