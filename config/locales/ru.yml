@@ -37,6 +37,13 @@ ru:
     show:
       header: "Прохождение теста по %{title}"
       question: "Вопрос %{num} из %{total}"
+    gist:
+      success: "Gist успешно сохранен. %{link}"
+      failure: "Во время сохранения gist произошла ошибка"
+
+  services:
+    gist_question:
+      description: "Вопрос о %{title} от Test Guru"
 
   admin:
     tests:

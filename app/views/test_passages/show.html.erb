@@ -1,9 +1,11 @@
 <h2><%= t('.header', title: @test_passage.test.title) %></h2>
 
 <p> <%= t('.question', num: @test_passage.question_num, total: @test_passage.test.questions.count) %></p>
+<p>
 <b>
   <%= @test_passage.current_question.body %>
 </b>
+</p>
 
 <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |f| %>
   <%= f.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
@@ -12,5 +14,6 @@
       <%= b.label %>
     </p>
   <% end %>
+  <p><%= link_to 'Gist Question', gist_test_passage_path(@test_passage), method: :post %></p>
   <p><%= f.submit t('next') %></p>
 <% end %>

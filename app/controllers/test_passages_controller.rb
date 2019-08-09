@@ -1,12 +1,26 @@
 class TestPassagesController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :find_test_passage, only: [:show, :update, :result]
+  before_action :find_test_passage, only: [:show, :update, :result, :gist]
 
   def show
   end
 
   def result
+  end
+
+  def gist
+    @obj = GistQuestionService.new(@test_passage.current_question)
+    @obj.call
+
+    flash_options = if @obj.success?
+                      { notice: t('.success', link: @obj.gist.html_url) }
+                    else
+                      { alert: t('.failure') }
+                    end
+
+    redirect_to @test_passage, flash_options
+
   end
 
   def update
