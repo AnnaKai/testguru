@@ -72,6 +72,7 @@ en:
   back: "Back"
   create: "Create"
   next: "Next"
+  submit: "Submit"
   links:
     login: "Log in"
     signup: "Sign up"
