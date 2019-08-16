@@ -1,7 +1,7 @@
 <tr>
   <td>
   <%= test.title %>
-  <%= content_tag :span, test.title, class: "test-title", data: { testid: test.id } %>
+  <%= content_tag :span, test.title, class: "test-title hide", data: { test_id: test.id } %>
   <%= render "form_inline", test: test == @test ? @test : test %>
   </td>
   <td><%= test.level %></td>
@@ -11,7 +11,7 @@
     <%= link_to t('edit'),
                 edit_admin_test_path(test),
                 :class => "btn btn-primary form-inline-link",
-                data: { testid: test.id } %>
+                data: { test_id: test.id } %>
     <%= link_to t('delete'),
                 admin_test_path(test),
                 method: :delete,

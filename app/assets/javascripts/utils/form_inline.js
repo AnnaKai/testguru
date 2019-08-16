@@ -10,16 +10,15 @@ document.addEventListener('turbolinks:load', function() {
 
 function formInlineLinkHandler(e) {
     e.preventDefault();
-
-    var testId = this.dataset.testid;
+    var testId = this.dataset.testId;
     formInlineHandler(testId);
 }
 
 function formInlineHandler(testId) {
     //`.form-inline-link[data-test-id=${testId}}`
-    var link = document.querySelector('.form-inline-link[data-testid="' + testId + '"]');
-    var testTitle = document.querySelector('.test-title[data-testid="' + testId + '"]');
-    var formInline = document.querySelector('.form-inline[data-testid="' + testId + '"]');
+    var link = document.querySelector('.form-inline-link[data-test-id="' + testId + '"]');
+    var testTitle = document.querySelector('.test-title[data-test-id="' + testId + '"]');
+    var formInline = document.querySelector('.form-inline[data-test-id="' + testId + '"]');
 
     if(formInline.classList.contains('hide')) {
         testTitle.classList.add('hide');
