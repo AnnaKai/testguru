@@ -1,6 +1,11 @@
 <h2><%= t('.header', title: @test_passage.test.title) %></h2>
 
 <p> <%= t('.question', num: @test_passage.question_num, total: @test_passage.test.questions.count) %></p>
+
+<div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+
 <p>
 <b>
   <%= @test_passage.current_question.body %>
