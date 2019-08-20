@@ -32,6 +32,10 @@ class TestPassage < ApplicationRecord
     success_rate >= SUCCESS_PERCENT
   end
 
+  def percent
+    (question_num - 1) / test.questions.count.to_f * 100
+  end
+
   private
 
   def set_first_question
