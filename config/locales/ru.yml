@@ -74,6 +74,7 @@ ru:
   back: "Назад"
   create: "Создать"
   next: "Вперед"
+  submit: "Отправить"
   links:
     login: "Войти"
     signup: "Зарегистрироваться"

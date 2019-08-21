@@ -5,6 +5,9 @@
         <h2><%= t('.header') %></h2>
         <small><%= t('.quantity') %>: <%= @tests.count %></small>
       </div>
+
+      <%= render 'shared/errors', resource: @test %>
+
       <% if @tests.present? %>
         <table class="table">
           <tr>
