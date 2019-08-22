@@ -27,6 +27,6 @@ answers = Answer.create([
 ])
 
 users = [
-  ['Peter Pan', 'Peter', 'peterpan@pp.com', 'qwerty', 'Admin']
+  ['Peter Pan', 'Peter', 'peterpan@pp.com', 'Admin']
 ]
-users.each { |username, email, first_name, password, type| User.create(username: username, first_name: first_name, email: email, password: password, type: type) }
+users.each { |username, email, first_name, type| User.create(username: username, first_name: first_name, email: email, type: type) }

@@ -25,7 +25,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'execjs'
 gem 'therubyracer'
 # bootstrap 4
+
 gem 'bootstrap', '~> 4.3.1'
+gem 'mail_form'
 gem 'jquery-rails'
 gem 'octicons_helper'
 
