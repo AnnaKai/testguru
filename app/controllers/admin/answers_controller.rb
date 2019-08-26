@@ -17,7 +17,7 @@ class Admin::AnswersController < Admin::BaseController
     @answer = @question.answers.new(answer_params)
 
     if @answer.save
-      redirect_to answer_path(@answer)
+      redirect_to admin_answer_path(@answer)
     else
       render :new
     end
@@ -33,6 +33,7 @@ class Admin::AnswersController < Admin::BaseController
 
   def destroy
     @answer.destroy
+    # TODO: correct path
     redirect_to @answer.question
   end
 
