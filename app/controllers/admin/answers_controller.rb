@@ -25,7 +25,7 @@ class Admin::AnswersController < Admin::BaseController
 
   def update
     if @answer.update(answer_params)
-      redirect_to @answer
+      redirect_to admin_question_path(@answer.question)
     else
       render :edit
     end
@@ -33,8 +33,7 @@ class Admin::AnswersController < Admin::BaseController
 
   def destroy
     @answer.destroy
-    # TODO: correct path
-    redirect_to @answer.question
+    redirect_to admin_question_path(@answer.question)
   end
 
   private
