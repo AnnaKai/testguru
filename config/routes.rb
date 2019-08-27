@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root 'tests#index'
 
+  resources :contact, only: [:index, :new, :create]
+
   scope "(/:lang)", lang: /en|ru/ do
 
     devise_for :users, skip: :omniauth_callbacks
