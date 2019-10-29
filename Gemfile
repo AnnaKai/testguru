@@ -43,7 +43,7 @@ gem 'bcrypt', '~> 3.1.12'
 # gem 'capistrano-rails', group: :development
 
 # Devise
-gem 'devise', '~> 4.6.2'
+gem 'devise', '~> 4.7.1'
 gem 'omniauth', '>= 1.0.0'
 gem "omniauth-rails_csrf_protection"
 
